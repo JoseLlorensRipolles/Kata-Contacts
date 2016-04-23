@@ -1,6 +1,9 @@
 import controller.ContactsController;
+import controller.ContactsControllerImp;
 import model.Diary;
+import model.DiaryImp;
 import view.DiaryView;
+import view.DiaryViewImp;
 
 /**
  * Created by JoseManuel on 23/04/2016.
@@ -8,15 +11,15 @@ import view.DiaryView;
 public class IndependencyInjector {
 
 
-    public static Diary getDiary(){
-        return new Diary();
+    public static DiaryImp getDiary(){
+        return new DiaryImp();
     }
 
-    public static ContactsController getContactsController(Diary diary) {
-        return new ContactsController(diary);
+    public static ContactsController getContactsController(Diary diaryImp) {
+        return new ContactsControllerImp(diaryImp);
     }
 
-    public static DiaryView getDiaryView(ContactsController contactsController){
-        return new DiaryView(contactsController);
+    public static DiaryView getDiaryView(ContactsController contactsControllerImp){
+        return new DiaryViewImp(contactsControllerImp);
     }
 }

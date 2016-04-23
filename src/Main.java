@@ -1,6 +1,10 @@
 import controller.ContactsController;
+import controller.ContactsControllerImp;
+import model.Contact;
 import model.Diary;
+import model.DiaryImp;
 import view.DiaryView;
+import view.DiaryViewImp;
 
 import java.util.Scanner;
 
@@ -9,22 +13,18 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String [] args){
-        Diary diary = IndependencyInjector.getDiary();
-        ContactsController contactsController = IndependencyInjector.getContactsController(diary);
-        DiaryView diaryView = IndependencyInjector.getDiaryView(contactsController);
+        Diary diaryImp = IndependencyInjector.getDiary();
+        ContactsController contactsControllerImp = IndependencyInjector.getContactsController(diaryImp);
+        DiaryView diaryViewImp = IndependencyInjector.getDiaryView(contactsControllerImp);
 
         Scanner keyboard = new Scanner(System.in);
         String name = "";
         String telf = "";
         do{
-            System.out.print("Insert contact name: ");
-            name = keyboard.nextLine();
-            if(!name.equals("/exit")) {
-                System.out.print("Insert contact number: ");
-                telf = keyboard.nextLine();
-                diaryView.contactsController.addContact(name, telf);
-            }
-        }while(!name.equals("/exit"));
+            Contact aux = diaryViewImp.getContact();
+            contactsControllerImp.addContact(aux);
+
+        }while(!diaryViewImp.pressedExit());
     }
 
 }

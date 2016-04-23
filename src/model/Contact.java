@@ -4,8 +4,8 @@ package model;
  * Created by JoseManuel on 23/04/2016.
  */
 public class Contact {
-    String name;
-    String telf;
+    private String name;
+    private String telf;
 
     public Contact(String name){
         this.name=name;
