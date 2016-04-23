@@ -11,21 +11,21 @@ import view.DiaryViewImp;
  */
 public class ContactsControllerImp implements ContactsController {
 
-    private Diary diaryImp;
-    private DiaryView diaryViewImp;
+    private Diary diary;
+    private DiaryView diaryView;
 
     public ContactsControllerImp(Diary diaryImp){
-        this.diaryImp = diaryImp;
+        this.diary = diaryImp;
     }
 
     public void addContact(Contact contact){
-        diaryImp.addContact(contact);
-        diaryViewImp.showContacts(diaryImp.getContacts());
+        diary.addContact(contact);
+        diaryView.showContacts(diary.getContacts());
     }
 
     @Override
     public void initView(DiaryView diaryView) {
-        this.diaryViewImp = diaryView;
+        this.diaryView = diaryView;
     }
 
 }

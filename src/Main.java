@@ -13,18 +13,18 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String [] args){
-        Diary diaryImp = IndependencyInjector.getDiary();
-        ContactsController contactsControllerImp = IndependencyInjector.getContactsController(diaryImp);
-        DiaryView diaryViewImp = IndependencyInjector.getDiaryView(contactsControllerImp);
+        Diary diary = IndependencyInjector.getDiary();
+        ContactsController contactsController = IndependencyInjector.getContactsController(diary);
+        DiaryView diaryView = IndependencyInjector.getDiaryView(contactsController);
 
         Scanner keyboard = new Scanner(System.in);
         String name = "";
         String telf = "";
         do{
-            Contact aux = diaryViewImp.getContact();
-            contactsControllerImp.addContact(aux);
+            Contact aux = diaryView.getContact();
+            contactsController.addContact(aux);
 
-        }while(!diaryViewImp.pressedExit());
+        }while(!diaryView.pressedExit());
     }
 
 }

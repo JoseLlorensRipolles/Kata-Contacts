@@ -11,13 +11,13 @@ import java.util.Scanner;
  * Created by JoseManuel on 23/04/2016.
  */
 public class DiaryViewImp implements DiaryView {
-    private ContactsController contactsControllerImp;
+    private ContactsController contactsController;
     private Scanner keyboard ;
     private boolean exit;
 
-    public DiaryViewImp(ContactsController contactsControllerImp){
-        this.contactsControllerImp = contactsControllerImp;
-        this.contactsControllerImp.initView(this);
+    public DiaryViewImp(ContactsController contactsController){
+        this.contactsController = contactsController;
+        this.contactsController.initView(this);
         keyboard = new Scanner(System.in);
         exit = false;
     }

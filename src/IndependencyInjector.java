@@ -11,15 +11,15 @@ import view.DiaryViewImp;
 public class IndependencyInjector {
 
 
-    public static DiaryImp getDiary(){
+    public static Diary getDiary(){
         return new DiaryImp();
     }
 
-    public static ContactsController getContactsController(Diary diaryImp) {
-        return new ContactsControllerImp(diaryImp);
+    public static ContactsController getContactsController(Diary diary) {
+        return new ContactsControllerImp(diary);
     }
 
-    public static DiaryView getDiaryView(ContactsController contactsControllerImp){
-        return new DiaryViewImp(contactsControllerImp);
+    public static DiaryView getDiaryView(ContactsController contactsController){
+        return new DiaryViewImp(contactsController);
     }
 }
