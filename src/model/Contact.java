@@ -20,15 +20,9 @@ public class Contact {
         return telf;
     }
 
-    public void setTelf(String telf) {
-        this.telf = telf;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+
 }
