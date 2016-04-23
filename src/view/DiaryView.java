@@ -22,8 +22,11 @@ public class DiaryView {
         this.contactsController=contactsController;
     }*/
     public void showContacts(List<Contact> contacts) {
+        System.out.println("\n\nCONTACT LIST:\n");
         for(int i = 0; i<contacts.size();i++){
             System.out.print(contacts.get(i).getName()+" : "+contacts.get(i).getTelf()+"\n");
         }
+        System.out.println("\n");
+
     }
 }
