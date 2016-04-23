@@ -9,9 +9,9 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String [] args){
-        Diary diary = new Diary();
-        ContactsController contactsController = new ContactsController(diary);
-        DiaryView diaryView = new DiaryView(contactsController);
+        Diary diary = IndependencyInjector.getDiary();
+        ContactsController contactsController = IndependencyInjector.getContactsController(diary);
+        DiaryView diaryView = IndependencyInjector.getDiaryView(contactsController);
 
         Scanner keyboard = new Scanner(System.in);
         String name = "";
