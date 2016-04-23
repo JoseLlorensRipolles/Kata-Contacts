@@ -14,10 +14,14 @@ public class ContactsController {
     private Diary diary;
     private DiaryView diaryView;
 
-    public ContactsController(DiaryView diaryView){
-        diary = new Diary();
-        this.diaryView = diaryView;
+    public ContactsController(Diary diary){
+        this.diary = diary;
     }
+
+    public void initView(DiaryView view){
+        this.diaryView = view;
+    }
+
     public void addContact(String name, String telf){
         diary.addContact(name,telf);
         diaryView.showContacts(diary.getContacts());

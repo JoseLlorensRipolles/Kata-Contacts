@@ -13,24 +13,14 @@ import java.util.Scanner;
 public class DiaryView {
     public ContactsController contactsController;
 
-    public DiaryView(){
-        contactsController= new ContactsController(this);
+    public DiaryView(ContactsController contactsController){
+        this.contactsController = contactsController;
+        this.contactsController.initView(this);
     }
 
-    public static void main(String [] args){
-        DiaryView diaryView = new DiaryView();
-        Scanner keyboard = new Scanner(System.in);
-        String name = "";
-        String telf = "";
-        do{
-            System.out.println("Insert contact name:");
-            name = keyboard.nextLine();
-            System.out.println("Insert contact number");
-            telf = keyboard.nextLine();
-            diaryView.contactsController.addContact(name,telf);
-        }while(name != "/exit");
-    }
-
+    /*public void initController(ContactsController contactsController){
+        this.contactsController=contactsController;
+    }*/
     public void showContacts(List<Contact> contacts) {
         for(int i = 0; i<contacts.size();i++){
             System.out.print(contacts.get(i).getName()+" : "+contacts.get(i).getTelf()+"\n");
